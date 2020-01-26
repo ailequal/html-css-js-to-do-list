@@ -16,6 +16,10 @@ h1, h2 {
   text-align: center;
 }
 
+.line-through {
+  text-decoration: line-through;
+}
+
 .template {
   display: none;
 }
