@@ -26,6 +26,7 @@ h1, h2 {
 
 /* main */
 .container {
+  padding: 5px;
   background-color: red;
 }
 
@@ -65,4 +66,20 @@ li:hover span {
 span {
   display: none;
   cursor: pointer;
+}
+
+.add {
+  width: 200px;
+  margin: 10px auto;
+}
+
+.add label {
+  display: block;
+  margin: 5px;
+  text-align: center;
+}
+
+.add input {
+  display: block;
+  width: 200px;
 }
