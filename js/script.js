@@ -5,6 +5,9 @@ $(document).ready(function() {
   var toDoList = [];
   var listItem = '';
 
+  // start with an empty input box
+  $('#item').val('');
+
   // array with things to do
   toDoList = ['Buy tickets for the cinema', 'Buy some milk', 'Bake a cake', 'Go for a walk', 'Have a nice rest', 'Wake up at 07:00', 'Read a book'];
 
@@ -16,17 +19,19 @@ $(document).ready(function() {
   }
 
   // add
-  $('.add').click(function() {
-    add($(this));
+  $(document).on('keydown', '#item', function() {
+    if (event.which === 13) {
+      add($('#item').val());
+    }
   });
 
   // check
-  $('.check').click(function() {
+  $(document).on('click', '.check', function() {
     check($(this));
   });
 
   // cross
-  $('.cross').click(function() {
+  $(document).on('click', '.cross', function() {
     cross($(this));
   });
 
@@ -43,8 +48,13 @@ function getRandomNumber(min, max) {
 
 // add an item
 function add(select) {
-  // var listItem = select.closest('li');
-  // listItem.toggleClass('line-through');
+  var item = $('#item');
+  var listItem = $('.template li').clone();
+  if (item.val().length !== 0) {
+    listItem.append(select);
+    $('.to-do-list').append(listItem);
+    item.val('');
+  }
 }
 
 // check an item
